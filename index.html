@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#180D2B">
+  <title>¿Ya te inscribiste a Koinonía?</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      min-height: 100vh; min-height: 100dvh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 22px; text-align: center;
+      font-family: Arial, Helvetica, sans-serif; color: #fff;
+      background: radial-gradient(circle at top, #572777 0%, #2b1743 48%, #180D2B 100%);
+    }
+    main { width: 100%; max-width: 700px; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: clamp(16px, 3vh, 26px); }
+    h1 { margin: 0; font-size: clamp(2rem, 8.5vw, 4.2rem); line-height: 1.12;
+      font-weight: 900; overflow-wrap: break-word; text-shadow: 0 3px 18px rgba(0,0,0,.25); }
+    .main-sticker { display: block; width: min(76vw, 320px); max-height: 34vh; object-fit: contain; border-radius: 18px; }
+    .prompt { margin: 0; font-size: clamp(1rem, 4vw, 1.25rem); font-weight: 700; }
+    .buttons { display: flex; gap: 16px; width: min(100%, 390px); justify-content: center; }
+    button { border: 0; border-radius: 16px; padding: 15px 28px; min-width: 125px;
+      font-size: 1.15rem; font-weight: 900; color: #fff; cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,.22); transition: transform .15s, filter .15s; }
+    button:hover { filter: brightness(1.08); transform: translateY(-2px); }
+    button:focus-visible { outline: 3px solid white; outline-offset: 4px; }
+    .yes { background: #2dbb78; }
+    .no { background: #ed4f70; }
+    .result { display: none; }
+    .result.active { display: flex; }
+    .result-sticker { display: block; width: min(78vw, 360px); max-height: 48vh; object-fit: contain; border-radius: 18px; }
+    .fallback { display: none; font-size: clamp(5rem, 25vw, 9rem); line-height: 1.1; filter: drop-shadow(0 8px 12px rgba(0,0,0,.2)); }
+    .message { margin: 0; max-width: 540px; font-size: clamp(1.15rem, 4.8vw, 1.8rem); line-height: 1.35; font-weight: 800; }
+    .back { background: #ffffff; color: #35184f; font-size: 1rem; margin-top: 4px; }
+    @media (max-height: 650px) {
+      main { gap: 13px; }
+      .main-sticker { width: min(50vw, 220px); max-height: 28vh; }
+      .result-sticker { width: min(55vw, 250px); max-height: 35vh; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section id="home" class="screen" style="display:flex; flex-direction:column; align-items:center; gap:inherit; width:100%;">
+      <h1>¿YA TE INSCRIBISTE A KOINONÍA?</h1>
+      <img class="main-sticker" src="sticker-perrito.jpg" alt="Perrito con expresión graciosa">
+      <p class="prompt">¡Elige tu respuesta!</p>
+      <div class="buttons">
+        <button class="yes" type="button" onclick="showResult('yes')">SÍ</button>
+        <button class="no" type="button" onclick="showResult('no')">NO</button>
+      </div>
+    </section>
+
+    <section id="yes" class="result" aria-live="polite" style="flex-direction:column; align-items:center; gap:20px; width:100%;">
+      <img class="result-sticker" src="sticker-si.jpeg" alt="Sticker para quienes ya se inscribieron" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+      <div class="fallback" aria-hidden="true">🎉🙌</div>
+      <p class="message">¡Qué alegría! Nos vemos en KOINONÍA. 💜</p>
+      <button class="back" type="button" onclick="goBack()">VOLVER</button>
+    </section>
+
+    <section id="no" class="result" aria-live="polite" style="flex-direction:column; align-items:center; gap:20px; width:100%;">
+      <img class="result-sticker" src="sticker-no.jpeg" alt="Sticker para quienes aún no se han inscrito" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+      <div class="fallback" aria-hidden="true">🥺👉👈</div>
+      <p class="message">¡Todavía estás a tiempo! Anímate a inscribirte. 💜</p>
+      <button class="back" type="button" onclick="goBack()">VOLVER</button>
+    </section>
+  </main>
+  <script>
+    function showResult(answer) {
+      document.getElementById('home').style.display = 'none';
+      document.querySelectorAll('.result').forEach(section => section.classList.remove('active'));
+      document.getElementById(answer).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function goBack() {
+      document.querySelectorAll('.result').forEach(section => section.classList.remove('active'));
+      document.getElementById('home').style.display = 'flex';
+    }
+  </script>
+</body>
+</html>

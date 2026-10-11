@@ -1,0 +1,27 @@
+ACTUALIZACIÓN DE LA PÁGINA KOINONÍA
+
+Archivos incluidos:
+- index.html: página con los botones SÍ y NO y las pantallas de respuesta.
+- sticker-perrito.jpg: sticker original de la página.
+
+PARA AÑADIR TUS DOS STICKERS PERSONALIZADOS:
+1. Guarda la imagen para la respuesta SÍ con este nombre exacto: sticker-si.png
+2. Guarda la imagen para la respuesta NO con este nombre exacto: sticker-no.png
+3. Sube esos dos archivos a la misma carpeta del repositorio donde está index.html.
+4. Si tus imágenes son JPG, puedes convertirlas a PNG o cambiar la extensión en los nombres dentro de index.html.
+
+MENSAJES QUE APARECEN:
+SÍ: “¡Qué alegría! Nos vemos en KOINONÍA. 💜”
+NO: “¡Todavía estás a tiempo! Anímate a inscribirte. 💜”
+
+CÓMO REEMPLAZAR EN GITHUB:
+1. Descarga y extrae el ZIP en tu dispositivo.
+2. Abre tu repositorio de GitHub que publica la página.
+3. Entra en la carpeta raíz (la misma donde está el index.html actual).
+4. Abre index.html y elige el lápiz Edit, o elimina/reemplaza el archivo por el nuevo index.html.
+5. Sube también sticker-perrito.jpg si GitHub no lo conserva en esa carpeta.
+6. Sube sticker-si.png y sticker-no.png cuando tengas las imágenes personalizadas.
+7. Pulsa Commit changes para guardar los cambios.
+8. Espera un momento y abre https://emelycordoba54-sketch.github.io/C-digo/ para probar los botones.
+
+IMPORTANTE: El QR anterior puede seguir funcionando porque el enlace de la página no cambia.
